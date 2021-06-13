@@ -1,22 +1,22 @@
 const { Router } = require('express');
 const router = Router();
-const { getAllDogs, getDogByName, getDogById } = require('./controllers/controllers.js');
+const { getAllDogs, getDogByName, getDogById, createDogBreed } = require('./controllers/controllers.js');
 
 router.get('/', (req, res)=>{
     const name = req.query.name;
     if(name){
-        getDogByName(req, res);
+        getDogByName(req, res);//match(BD+API) ✓
     } else {
-        getAllDogs(req, res);
+        getAllDogs(req, res);//BD+API ✓
     }
 });
 
-router.get('/:idRaza', (req, res)=>{
+router.get('/:id', (req, res)=>{ // ✓
     getDogById(req, res);
 });
 
-router.post('/', (req, res)=>{
-    //Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body y crea una raza de perro en la base de datos:
+router.post('/', (req, res)=>{ // ✓
+    createDogBreed(req, res);
 });
 
 module.exports = router;

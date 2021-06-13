@@ -1,12 +1,11 @@
 const { Router } = require('express');
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 const router = Router();
-const dogs = require('./dogs');
-const temperament = require('./temperament');
+const dogs = require('./dogs.js');
+const temperament = require('./temperament.js');
+const {inicio} = require('./controllers/controllers.js');
 
 // Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
+inicio() //como hago para ejecutar esto solo la primera vez y que no se agreguen repetidos todos los temperamentos cada vez que guardo? es necesario hacerlo para que funcione correctamente la BD?
 router.use('/dogs', dogs);
 router.use('/temperament', temperament);
 
