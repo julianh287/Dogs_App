@@ -1,0 +1,14 @@
+.cardsContainer {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap:wrap;
+    margin-left: 20rem;
+}
+/* flex-direction: row, row-reverse, column, column-reverse;
+flex-wrap: wrap (nowrap y wrap-reverse);
+order: -1, 0, 1;
+justify-content: flex-end, flex-start, center, space-around, space-between;
+align-items: flex-end, flex-start, center, baseline, stretch;
+align-self: mismos valores que align-items;
+align-content: flex-end, flex-start, center, space-around, space-between, stretch; */

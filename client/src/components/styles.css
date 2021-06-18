@@ -1,0 +1,288 @@
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol,
+  ul {
+    list-style: none;
+  }
+  blockquote,
+  q {
+    quotes: none;
+  }
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  html,
+  body {
+    font-family: 'Ubuntu', sans-serif;
+    color: #5E6164;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: 'Russo One', sans-serif;
+    color: #23293B;
+  }
+  h2 {
+    font-size: 3.2rem;
+  }
+  h3 {
+    font-size: 2.8rem;
+  }
+  p {
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+  .container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  a {
+    text-decoration: none;
+    color: #454A59;
+  }
+  .navDiv {
+    top: 0px;
+    height: 150px;
+    color: #454A59;
+    background-color: #F6F6F6;
+    border: 1px double #F1F1F1;
+    margin: 15px;
+  }
+  #main {
+    color: #23293B;
+    font-size: 4rem;
+    font: bold;
+    font-family: 'Russo One', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+  }
+  .subDiv {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width:500px) {
+    .subDiv {
+      font-size: 2rem;
+    }
+  }
+  .sub {
+    padding: 20px;
+  }
+  @media (max-width:500px) {
+    .sub {
+      padding: 10px;
+    }
+  }
+  footer {
+    color: #22283B;
+    background: #f4f4f4;
+    padding: 20px 0;
+    border: 1px double #e0e0e0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home .intro .headerImg {
+    border-radius: 20px;
+  }
+  .home .intro h2 {
+    padding: 15px;
+  }
+  .home .intro p {
+    padding: 0 15px;
+  }
+  .home .music-images {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .home .music-images img {
+    width: 28%;
+    margin: 20px 2.5%;
+    border-radius: 20px;
+    height: 100%;
+  }
+  @media (max-width:500px) {
+    .home .music-images .tecnologia,
+    .home .music-images .ondas {
+      display: none;
+    }
+    .home .music-images .auricular {
+      width: 100%;
+    }
+  }
+  .home .musica-nueva {
+    padding: 15px;
+  }
+  .home .musica-nueva h3 {
+    margin-top: 11px;
+  }
+  .home .musica-nueva p {
+    margin-top: 13px;
+  }
+  .home .actual {
+    margin-top: 60px;
+    border-top: 1px solid #dee2e6;
+    padding: 50px 60px;
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width:500px) {
+    .home .actual {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+  .home .actual .actual-text {
+    width: 50%;
+  }
+  @media (max-width:500px) {
+    .home .actual .actual-text {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  .home .actual h3 {
+    margin-bottom: 10px;
+  }
+  .home .actual p {
+    margin-bottom: 26px;
+  }
+  .home .actual .btn {
+    background-color: #22283A;
+    height: 40px;
+    width: 95px;
+    border-radius: 10px;
+    color: #F6F7F8;
+    font-size: 1.5rem;
+    border-color: #F6F7F8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home .actual .btn:hover {
+    background-color: #F6F7F8;
+    color: #22283A;
+    border-color: #22283A;
+    cursor: pointer;
+  }
+  @media (max-width:500px) {
+    .home .actual .btn {
+      width: 100%;
+    }
+  }
+  .home .actual-img {
+    width: 46%;
+    margin-left: 4%;
+  }
+  @media (max-width:500px) {
+    .home .actual-img {
+      width: 100%;
+      border-radius: 30px;
+      padding: 15 0px;
+    }
+  }
+  .home img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  export function AddTodo({addTodo}) {
+  
+    const [input, setInput]=React.useState({
+      title:"",
+      description:"",
+      place:"",
+      date:""
+    });
+    
+    const handleChange = (e) => {
+      setInput({
+        ...input,
+        [e.target.name]:e.target.value
+      })
+    }
+    
+    const handleSubmit = (e) => {
+      addTodo(input);
+      e.preventDefault();
+    
+    
+    }
+    
+      return (
+        <form onSubmit={handleSubmit}>
+          <label>Title</label>
+          <input name="title" onChange={handleChange} value={input.title} ></input>
+          <label>Description</label> 
+          <textarea name="description" onChange={handleChange} value={input.description}></textarea>
+          <label>Place</label>
+          <input name="place" onChange={handleChange} value={input.place}></input>
+          <label>Date</label>
+          <input name="date" onChange={handleChange} value={input.date}></input>
+          <button type="submit"></button> 
+        </form>
+      )
+    };
+    
+    function mapDispatchToProps(dispatch){
+      return {
+        addTodo: (todo) => dispatch(addTodo(todo))
+      }
+    }
+    
+    export default connect (null, mapDispatchToProps)(AddTodo);

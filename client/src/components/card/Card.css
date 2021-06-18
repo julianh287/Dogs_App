@@ -1,0 +1,33 @@
+.card {
+    height: 20rem;
+    width: 20rem;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: burlywood;
+    padding-top: 10px;
+  }
+
+  .card-title {
+    margin-bottom: 10px;
+  }
+  .card-title:hover {
+    cursor: pointer;
+  }
+
+  .card-body {
+    margin: 0px 10px;
+    padding-top: 0px;
+    font-size: smaller;
+  }
+  
+  .picture {
+    height: 14rem;
+    width: 14rem;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+  .picture:hover {
+    cursor: pointer;
+  }
+  

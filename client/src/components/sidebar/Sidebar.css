@@ -1,0 +1,18 @@
+.Side {
+    position:absolute;
+    top: 170px; left: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 10px;
+    border: 2px solid black;
+    border-bottom-right-radius: 10px;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    width: 18rem;
+    height: 800px;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+};

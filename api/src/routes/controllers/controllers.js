@@ -26,7 +26,8 @@ async function inicio(){
 async function getAllDogs(req, res){
     try {
         const dogsInAPI = await axios.get(`${BASE_URL}${API_IN_URL}`);
-        const dogsInDB = await Dog.findAll(); // pide info a ambos lugares
+        const dogsInDB = await Dog.findAll({ include: Temperament });//include: [{ model: Temperaments, required: true }}]
+        // pide info a ambos lugares
         const AllDogs = [...dogsInAPI.data, ...dogsInDB]; //mete todo en un nuevo array y lo devuelve
             res.status(200);
             res.json(AllDogs);
@@ -41,7 +42,7 @@ async function getDogByName(req, res){
     const name = req.query.name;
     try {
         const dogsInAPI = await axios.get(`${BASE_URL}${DOG_URL}${name}`);
-        const dogsInDB = await Dog.findAll(); // pide info a ambos lugares
+        const dogsInDB = await Dog.findAll({ include: Temperament }); // pide info a ambos lugares
         const AllDogs = [...dogsInAPI.data, ...dogsInDB]; // mete todo en un nuevo array
         var response = AllDogs.filter(el => el.name.includes(name));//filtra las razas que contengan en su nombre lo que llega por query      
             res.status(200);
@@ -57,7 +58,7 @@ async function getDogById(req, res){
     const idRaza = req.params;
     try {
         const dogsInAPI = await axios.get(`${BASE_URL}${API_IN_URL}`);
-        const dogsInDB = await Dog.findAll(); // pide info a ambos lugares
+        const dogsInDB = await Dog.findAll({ include: Temperament }); // pide info a ambos lugares
         const AllDogs = [...dogsInAPI.data, ...dogsInDB]; // mete todo en un nuevo array
         var matchId = AllDogs.filter(el => { //filtra todo el array
             if(el.id == idRaza.id){ //si matchea el id devuelve ese elemento (tiene doble igual porque esta comparando un string y un numero)
