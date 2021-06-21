@@ -5,6 +5,7 @@
     flex-wrap:wrap;
     margin-left: 20rem;
 }
+
 /* flex-direction: row, row-reverse, column, column-reverse;
 flex-wrap: wrap (nowrap y wrap-reverse);
 order: -1, 0, 1;

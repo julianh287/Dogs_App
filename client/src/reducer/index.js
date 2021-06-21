@@ -1,9 +1,10 @@
-import {GET_RAZA, CREATE_RAZA, REMOVE_RAZA, GET_DETAILS} from '../actions/index.js';
+import {GET_RAZA, CREATE_RAZA, GET_DETAILS, GET_TEMPS} from '../actions/index.js';
 
 const initialState = {
-    // razasCreated : [],
+    razasCreated : [],
     razasLoaded : [],
-    // razaDetail : {}
+    razaDetail : {},
+    tempsLoaded : []
 };
 
 function rootReducer(state = initialState, action) {
@@ -13,21 +14,26 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 razasLoaded: action.payload
             };
-        // case CREATE_RAZA:
-        //     return {
-        //         ...state,
-        //         razasCreated: state.razasCreated.concat(action.payload)
-        //     };
+        case CREATE_RAZA:
+            return {
+                ...state,
+                razasCreated: state.razasCreated.concat(action.payload)
+            };
         // case REMOVE_RAZA:
         //     return {
         //         ...state,
         //         razasCreated: state.razasCreated.filter(raza => raza.id!==action.id)
         //     };
-        // case GET_DETAILS:
-        //     return {
-        //         ...state,
-        //         razaDetail: action.payload
-        //     };
+        case GET_DETAILS:
+            return {
+                ...state,
+                razaDetail: action.payload
+            };
+        case GET_TEMPS:
+            return {
+                ...state,
+                tempsLoaded: action.payload
+            }
         default: return state;
     }
 };

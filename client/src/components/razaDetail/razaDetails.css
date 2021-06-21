@@ -1,0 +1,30 @@
+.detail {
+    position:absolute;
+    right: 0px;
+    top: 170px;
+    width: 73rem;
+    height: 40rem;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: burlywood;
+    padding-top: 10px;
+  }
+
+  .detail-title {
+    margin-bottom: 10px;
+  }
+
+  .detail-body {
+    margin: 0px 10px;
+    padding-top: 0px;
+    font-size: smaller;
+  }
+  
+  .detailPic {
+    height: 28rem;
+    width: 28rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 20px;
+  }

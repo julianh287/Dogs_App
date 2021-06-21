@@ -1,4 +1,4 @@
-.form {
+.about {
   position:absolute;
   right: 0px;
   top: 170px;
@@ -9,8 +9,4 @@
   border-radius: 10px;
   background-color: burlywood;
   padding-top: 10px;
-}
-.danger{
-  color: red;
-  padding: 5px;
 }

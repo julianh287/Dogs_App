@@ -1,7 +1,8 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Card.css';
 
-function Card({name, image, temperament, temperaments}) {
+function Card({id, name, image, temperament, temperaments}) {
 
   if(temperaments){
     var temperamentosDB = [];
@@ -13,8 +14,10 @@ function Card({name, image, temperament, temperaments}) {
 
   return (
     <div className='card'>
+      <Link to={`/home/details/${id}`}>
       <img src={image && image.url} alt='No se encontró imagen' className='picture'/>
       <p className='card-title'>{name}</p>
+      </Link>
       <span className='card-body'>Temperamentos: {temperament}</span>
       <span className='card-body'>{temperamentosDB} </span>   
     </div>
@@ -22,3 +25,4 @@ function Card({name, image, temperament, temperaments}) {
 };
 
 export default Card;
+

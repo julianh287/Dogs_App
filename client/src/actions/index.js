@@ -2,7 +2,8 @@ import axios from 'axios';
 export const GET_RAZA = 'GET_RAZA';
 export const GET_DETAILS = 'GET_DETAILS';
 export const CREATE_RAZA = 'CREATE_RAZA';
-export const REMOVE_RAZA = 'REMOVE_RAZA';
+export const GET_TEMPS = 'GET_TEMPS';
+// export const REMOVE_RAZA = 'REMOVE_RAZA';
 // export const FILTRAR_X_TEMP = 'FILTRAR_X_TEMP';
 // export const FILTRAR_X_RAZA = 'FILTRAR_X_RAZA';
 // export const ORDENAR_X_NOMBRE = 'ORDENAR_X_NOMBRE';
@@ -25,19 +26,36 @@ export function getRaza(nombre) {
 };
 
 export function getDetails(id) {
-    return function (dispatch) {
-        axios.get('http://localhost:3001/dogs/' + id)
-            .then (response => response.json())
-            .then (json => {
-                dispatch({ type:GET_DETAILS, payload:json})
-            })
-    }
+    return async function (dispatch) {
+        let res = await axios.get('http://localhost:3001/dogs/' + id)
+                dispatch({ type:GET_DETAILS, payload:res.data})
+        }
 };
 
 export function createRaza(payload) {
-    return { type:CREATE_RAZA, payload }
+    return async function (dispatch) {
+        try {
+            let res = await axios.post('http://localhost:3001/dogs/', payload);
+            console.log(res.data);           
+        } catch (err) {
+            console.log(err);
+            alert('No se pudo crear la nueva raza');/////////////////////
+            throw new Error('No se pudo crear la nueva raza');
+        }
+    }
 };
 
-export function removeRaza(id) {
-    return { type:REMOVE_RAZA, id }
+// export function removeRaza(id) {
+//     return { type:REMOVE_RAZA, id }
+// };
+
+export function getAllTemperaments() {
+    return async function (dispatch) {
+        try {
+            let res = await axios.get('http://localhost:3001/temperament/')
+                dispatch({ type:GET_TEMPS, payload:res.data})
+        } catch (err) {
+            console.log(err);
+        }
+    }
 };

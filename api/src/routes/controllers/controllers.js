@@ -41,7 +41,7 @@ async function getAllDogs(req, res){
 async function getDogByName(req, res){
     const name = req.query.name;
     try {
-        const dogsInAPI = await axios.get(`${BASE_URL}${DOG_URL}${name}`);
+        const dogsInAPI = await axios.get(`${BASE_URL}${API_IN_URL}`);
         const dogsInDB = await Dog.findAll({ include: Temperament }); // pide info a ambos lugares
         const AllDogs = [...dogsInAPI.data, ...dogsInDB]; // mete todo en un nuevo array
         var response = AllDogs.filter(el => el.name.includes(name));//filtra las razas que contengan en su nombre lo que llega por query      

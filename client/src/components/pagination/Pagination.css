@@ -1,0 +1,9 @@
+.pagNumber {
+    list-style: none;
+    display: flex;
+}
+.pagNumber li{
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer; 
+}
