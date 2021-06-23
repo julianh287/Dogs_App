@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getAllTemperaments, reloadRaza } from '../../actions/index';
 import './Sidebar.css';
 
-function Sidebar({getAllTemperaments, tempsLoaded, razas, setRazas, reloadRaza}) {
+function Sidebar({getAllTemperaments, razasLoaded, tempsLoaded, razas, setRazas, reloadRaza}) {
 
   useEffect(() => { 
     const bringTemps = () => {
@@ -127,17 +127,29 @@ const filterCreated = (selection) => {
   
   // const ALLINFO = ABC();
   /////////////////////////////////////////////////////////////
-  
-  
-  
-  // const filterTemperament = (temps) => {
-  
-  //     console.log(ALLINFO);
-  //     const FilteredInfo = ALLINFO?.filter( el => el?.temperament?.includes(`${temps}` || ` ${temps}`))
-  //     console.log(FilteredInfo);
-  //     Setrazas(filteredInfo)
+
+  const filterTemperament = (temps) => {
+    const PerrosFiltrados = razasLoaded.filter(el => {
+      if(typeof el.id === 'number'){
+        const ApiTemperaments = el.temperament?.split(', ');
+        return ApiTemperaments?.some(el => el.trim().toLowerCase()===temps)
+      } else {
+        return el.temperaments?.some(el=> el.name.toLowerCase()===temps);
+      }
+    });
+    return setRazas(PerrosFiltrados);
+
+
+
+    // console.log(PerrosFiltrados);
+    // console.log(razasLoaded);
+    // console.log(temps);
+      // console.log(ALLINFO);
+      // const FilteredInfo = ALLINFO?.filter( el => el?.temperament?.includes(`${temps}` || ` ${temps}`))
+      // console.log(FilteredInfo);
+      // Setrazas(filteredInfo)
       // reloadRaza(FilteredInfo);    
-  // };
+  };
 
 // que pise el estado: setRazas(ABC)
 // que pise el estado DE REDUX: razasLoaded con una action nueva
@@ -182,8 +194,8 @@ const filterCreated = (selection) => {
               return (<option key={el.id} value={el.name}>{el.name} </option>)// 'loyal'
             })}
           </select>
-          <button >Filtrar</button> 
-          {/* onClick={(e) => { e.preventDefault(); filterTemperament(document.getElementById('tempSelect').value) }} */}
+          <button onClick={(e) => { e.preventDefault(); filterTemperament(document.getElementById('tempSelect').value) }}>Filtrar</button> 
+          
           
         </div>
 
@@ -201,6 +213,7 @@ const filterCreated = (selection) => {
 function mapStateToProps(state) {
   return {
     tempsLoaded: state.tempsLoaded,
+    razasLoaded: state.razasLoaded
   }
 };  
 
