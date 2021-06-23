@@ -1,19 +1,23 @@
 .Side {
     position:absolute;
-    top: 170px; left: 0px;
-    margin-left: 0px;
+    top: 172px; left: 0px;
+    margin-left: 2px;
     margin-top: 0px;
     padding: 10px;
-    border: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
     border-bottom-right-radius: 10px;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
     width: 18rem;
     height: 800px;
-    background-color: bisque;
+    background-color: #84a6e9;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 };
+.SideProp button{
+padding: 10px;
+}

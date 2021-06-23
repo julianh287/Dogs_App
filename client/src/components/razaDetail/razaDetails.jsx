@@ -1,70 +1,87 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDetails } from '../../actions/index';
 import './RazaDetails.css';
 
-function RazaDetail({razaDetail, getDetails, match}) {
+function RazaDetail({match}) {
 
-  const [detalle, setDetalle] = useState({}); 
-  
-  useEffect(() => { //useEffect en 2 pasos separados.
+  var paramsID = match.params.id;
+
+  const dispatch = useDispatch();
+  const detalle = useSelector(state => state.razaDetail);
+
+  useEffect( () => {
     const bringDetail = () => {
-      getDetails(match.params.id) //ejecuta la action, que hace el llamado a la api y BD
+      dispatch(getDetails(paramsID))
     }
-    bringDetail()
-  }, []);
+    bringDetail();
+  }, [dispatch, paramsID]);
+
+  // useEffect(() => { //useEffect en 2 pasos separados. 
+  //   const bringDetail = () => {
+  //     getDetails(match.params.id)//ejecuta la action, que hace el llamado a la api y BD
+  //   }
+  //   bringDetail()
+  // }, [match.params.id, mapStateToProps, getDetails]);
   
-  useEffect(() => { 
-    const renderDetail = () => {
-      setDetalle(razaDetail) // setea el estado local de detalle a lo que trajo la action a traves del store
-    } 
-    renderDetail()
-  }, [razaDetail]);
+  // useEffect(() => { 
+  //   const renderDetail = () => {
+  //     setDetalle(razaDetail[0]) // setea el estado local de detalle a lo que trajo la action a traves del store
+  //   } 
+  //   renderDetail()
+  // }, [razaDetail]);
 
-  if(detalle.temperaments){
-    var temperamentosDB = [];
-    detalle.temperaments.map(el => {
-      var name= el.name[0].toUpperCase()+el.name.slice(1);
-      temperamentosDB.push(name+', ');
-    });
-  };
+  // if(detalle[0].temperaments){
+  //   var temperamentosDB = [];
+  //   detalle.temperaments.map(el => {
+  //     var name= el.name[0].toUpperCase()+el.name.slice(1);
+  //     temperamentosDB.push(name+', ');
+  //   });
+  // };
 
+  if (!detalle[0]) return (<p>Loading...</p>);
+  
   return (
     <div className='detail'>
 
-      <img src={detalle.image && detalle.image.url} alt='No se encontró imagen' className='detailPic'/>
+       <img src={detalle[0].image && detalle[0].image.url} alt='No se encontró imagen' className='detailPic'/>
 
-      <h2 className='detail-title'>{detalle.name}</h2>
+      <h2 className='detail-title'>{detalle[0].name}</h2>
 
-      {detalle.height && (<span className='detail-body'>Altura: {detalle.height}</span>)}
+      
+      <div>
+      {detalle[0].height && detalle[0].height.metric && (<p className='detail-body'>Altura: {detalle[0].height.metric}</p>)}
+      </div>
 
-      {detalle.weight && (<span className='detail-body'>Peso: {detalle.weight}</span>)}
+      <div>
+      {detalle[0].weight && detalle[0].weight.metric && (<p className='detail-body'>Peso: {detalle[0].weight.metric}</p>)}
+      </div>
 
-      {detalle.life_span && (<p className='detail-body'>Expectativa de vida: {detalle.life_span}</p>)}
+      <div>
+      {detalle[0].life_span && (<p className='detail-body'>Expectativa de vida: {detalle[0].life_span}</p>)}
+      </div>
 
-      {detalle.lifeExpectancy && (<p className='detail-body'>Expectativa de vida: {detalle.lifeExpectancy}</p>)}
+      <div>
+      {detalle[0].lifeExpectancy && (<p className='detail-body'>Expectativa de vida: {detalle[0].lifeExpectancy}</p>)}
+      </div>
 
-      {detalle.temperament && (<p className='detail-body'>Temperamentos: {detalle.temperament}</p>)}
+      <div>
+      {detalle[0].temperament && (<p className='detail-body'>Temperamentos: {detalle[0].temperament}</p>)}
+      </div>
 
-      {detalle.temperamentosDB && (<p className='detail-body'>Temperamentos: {detalle.temperamentosDB} </p>)}
-
+      <div>
+      {detalle[0].temperamentosDB && (<p className='detail-body'>Temperamentos: {detalle[0].temperamentosDB} </p>)}
+      </div>
     </div>
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    razaDetail: state.razaDetail[0],
-  }
-};
+// function mapStateToProps(state) {
+//   return {
+//     razaDetail: state.razaDetail,
+//   }
+// };
 
-export default connect(mapStateToProps, {getDetails})(RazaDetail);
-
-// "weight": {
-//   "imperial": "6 - 13",
-//   "metric": "3 - 6"
-// },
-// "height": {
-//   "imperial": "9 - 11.5",
-//   "metric": "23 - 29"
+export default RazaDetail;
+// export default connect(mapStateToProps, {getDetails})(RazaDetail);

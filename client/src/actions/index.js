@@ -3,11 +3,8 @@ export const GET_RAZA = 'GET_RAZA';
 export const GET_DETAILS = 'GET_DETAILS';
 export const CREATE_RAZA = 'CREATE_RAZA';
 export const GET_TEMPS = 'GET_TEMPS';
-// export const REMOVE_RAZA = 'REMOVE_RAZA';
-// export const FILTRAR_X_TEMP = 'FILTRAR_X_TEMP';
-// export const FILTRAR_X_RAZA = 'FILTRAR_X_RAZA';
-// export const ORDENAR_X_NOMBRE = 'ORDENAR_X_NOMBRE';
-// export const ORDENAR_X_PESO = 'ORDENAR_X_PESO';
+export const RELOAD_RAZA = 'RELOAD_RAZA';
+
 
 export function getRaza(nombre) {
     return async (dispatch) => {
@@ -27,9 +24,13 @@ export function getRaza(nombre) {
 
 export function getDetails(id) {
     return async function (dispatch) {
-        let res = await axios.get('http://localhost:3001/dogs/' + id)
-                dispatch({ type:GET_DETAILS, payload:res.data})
+        try {
+            let res = await axios.get('http://localhost:3001/dogs/' + id)
+                    dispatch({ type:GET_DETAILS, payload:res.data})    
+        } catch (err) {
+            console.log(err)
         }
+    }
 };
 
 export function createRaza(payload) {
@@ -39,19 +40,15 @@ export function createRaza(payload) {
             console.log(res.data);           
         } catch (err) {
             console.log(err);
-            alert('No se pudo crear la nueva raza');/////////////////////
+            alert('No se pudo crear la nueva raza');
             throw new Error('No se pudo crear la nueva raza');
         }
     }
 };
 
-// export function removeRaza(id) {
-//     return { type:REMOVE_RAZA, id }
-// };
-
 export function getAllTemperaments() {
     return async function (dispatch) {
-        try {
+        try {  
             let res = await axios.get('http://localhost:3001/temperament/')
                 dispatch({ type:GET_TEMPS, payload:res.data})
         } catch (err) {
@@ -59,3 +56,31 @@ export function getAllTemperaments() {
         }
     }
 };
+
+export function reloadRaza(payload){
+    return {
+        type:RELOAD_RAZA,
+        payload
+    }
+};
+
+// export function filterByRaza(payload, value) {
+//     if(value==='existente'){
+//         payload = payload.filter(el => {
+//             if(typeof el.id =='number'){
+//                 return el;
+//             }
+//         })
+//     }
+//     if(value==='created'){
+//         payload = payload.filter(el => {
+//             if(typeof el.id !=='number'){//UUID
+//                 return el;
+//             }
+//         })
+//     }
+//     return {
+//         type: FILTRAR_RAZA,
+//         payload
+//     }
+// };

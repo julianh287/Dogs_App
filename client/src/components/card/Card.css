@@ -4,12 +4,15 @@
     margin: 20px;
     border: 2px solid black;
     border-radius: 10px;
-    background-color: burlywood;
+    background-color: #84a6e9;
     padding-top: 10px;
   }
 
   .card-title {
     margin-bottom: 10px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    display: inline-block;
   }
   .card-title:hover {
     cursor: pointer;
@@ -23,9 +26,13 @@
   
   .picture {
     height: 14rem;
-    width: 14rem;
-    border-radius: 10px;
-    border: 1px solid black;
+  width: 14rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-left: 45px;
   }
   .picture:hover {
     cursor: pointer;

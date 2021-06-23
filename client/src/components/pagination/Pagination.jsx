@@ -9,7 +9,7 @@ function Pagination ({cardsPerPage, numberOfCards, paginate}){
   }
 
   return (
-    <nav>
+    <div className='DivPag'>
       <ul className='pagNumber'>
         {pageNumbers.map(number => (
           <li key={number} id={number} onClick={paginate}>          
@@ -17,19 +17,7 @@ function Pagination ({cardsPerPage, numberOfCards, paginate}){
           </li>
         ))}
       </ul>
-    </nav>
+    </div>
   )
 };
 export default Pagination;
-  
-// .pagNumber {
-//   display: flex;
-//   flex-direction: row;
-//   list-style: none;
-// }
-// .pagination {
-//   display: flex;
-//   padding: 2px;
-//   border: 1px solid black;
-//   cursor: pointer;
-// }   

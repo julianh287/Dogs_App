@@ -19,11 +19,6 @@ function Navbar({getRaza}) {
           <span className='box'>Crear una raza</span>
         </Link>
 
-        {/* LINK A MIS RAZAS */}
-        {/* <Link to='/home/favoritas'>
-          <span className='box'>Mis razas favoritas</span>
-        </Link> */}
-
         {/* LINK A SOBRE NOSOTROS */}
         <Link to='/home/about'>
           <span className='box'>Acerca de este sitio</span>

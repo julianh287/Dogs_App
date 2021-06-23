@@ -1,9 +1,29 @@
 
 .Searchbar{
     /* position:sticky; */
-    width: 16rem;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid black;
+    width: 36rem;
+    margin: 10px;
+    padding: 10px;
+    /* border: 2px solid black; */
     border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35px;
+}
+.InputBar{
+    width: 120%;
+    height: 2rem;
+    border-radius: 10px;
+    margin-right: 20px;
+
+}
+.SearchButton{
+    height: 2.5rem;
+    border-radius: 10px;
+}
+.SearchButton:hover{
+    background-color: #66DE93;
+    cursor:pointer;
 }

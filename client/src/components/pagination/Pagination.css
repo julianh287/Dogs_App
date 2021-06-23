@@ -6,4 +6,9 @@
     padding: 5px;
     border: 1px solid black;
     cursor: pointer; 
+};
+.DivPag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

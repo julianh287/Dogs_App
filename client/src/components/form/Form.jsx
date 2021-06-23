@@ -101,7 +101,7 @@ function Form({createRaza, tempsLoaded, getAllTemperaments}) {
         Para eso se te pedirá que brindes ciertos datos necesarios para crear la raza.
       </p>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <ul>
+        <ul className='FormList'>
           <li>
           <label>Nombre de la raza: </label>
         <input name="name" type='text' onChange={(e) => handleChange(e)} value={input.name} className={errors.name && "danger"} ></input>
@@ -148,7 +148,6 @@ function Form({createRaza, tempsLoaded, getAllTemperaments}) {
 
           <li>
           <label>Temperamento: </label>
-        {/* <input name="temperament" type='list' list='temps' onChange={(e) => handleChange(e)} value={input.temperament}className={errors.temperament && "danger"} /> */}
         <select name="temperament1" id='temps' onChange={(e) => handleChange(e)}>
           {tempsLoaded.map(el => {
             return (<option key={`${el.id}`} value={`${el.id}`}>{el.name} </option>)
@@ -172,7 +171,7 @@ function Form({createRaza, tempsLoaded, getAllTemperaments}) {
         </ul>
 
         {/* BOTON DE CREAR RAZA */}
-        {!errors.name && !errors.temperament && !errors.diffweight && !errors.maxweight && !errors.minweight && !errors.diffheight && !errors.minheight && !errors.maxheight && (<button type="submit">Crear</button>)}
+        {!errors.name && !errors.temperament && !errors.diffweight && !errors.maxweight && !errors.minweight && !errors.diffheight && !errors.minheight && !errors.maxheight && (<button className='FormButton' type="submit">Crear</button>)}
 
       </form>
     </div>

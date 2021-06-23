@@ -18,8 +18,10 @@ function Card({id, name, image, temperament, temperaments}) {
       <img src={image && image.url} alt='No se encontró imagen' className='picture'/>
       <p className='card-title'>{name}</p>
       </Link>
-      <span className='card-body'>Temperamentos: {temperament}</span>
-      <span className='card-body'>{temperamentosDB} </span>   
+      <div className='card-body'>
+      <span >Temperamentos: {temperament}</span>
+      <span>{temperamentosDB} </span>   
+      </div> 
     </div>
   );
 };

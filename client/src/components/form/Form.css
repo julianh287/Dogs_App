@@ -7,10 +7,35 @@
   margin: 20px;
   border: 2px solid black;
   border-radius: 10px;
-  background-color: burlywood;
+  background-color: #84a6e9;
   padding-top: 10px;
 }
 .danger{
   color: red;
   padding: 5px;
+}
+.FormList{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.FormList li{
+  padding: 10px;
+  margin-left: 180px;
+}
+.FormList input {
+  padding: 5px;
+}
+.FormList select{
+  padding: 5px;
+  margin: 10px;
+}
+.FormButton{
+  width: 30%;
+  padding: 10px;
+}
+.FormButton:hover{
+  background-color: #66DE93;
+  border-radius: 4px;
 }

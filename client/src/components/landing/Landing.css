@@ -1,0 +1,36 @@
+
+.landing{
+    background-image: url('./landing3.jpg');
+    position: fixed;
+	width: 100%;
+	height: 100%;
+	margin: 0px -9px 0px -9px;
+	/* background-image: url(${image}); */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.lanImg{
+    height: 200%;
+    width: 200%;
+}
+.lanButton{
+     position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      color: #f1f1f1;
+      background-color: rgba(0, 0, 0, 0);
+      border: 2px solid black;
+      font-size: 16px;
+      padding: 16px 30px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+}
+.lanButton:hover {
+    background-color: #5d96e0;
+    color: white;
+}
