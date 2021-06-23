@@ -26,7 +26,7 @@ async function inicio(){
 async function getAllDogs(req, res){
     try {
         const dogsInAPI = await axios.get(`${BASE_URL}${API_IN_URL}`);
-        const dogsInDB = await Dog.findAll({ include: Temperament });//include: [{ model: Temperaments, required: true }}]
+        const dogsInDB = await Dog.findAll({ include: Temperament });
         // pide info a ambos lugares
         const AllDogs = [...dogsInAPI.data, ...dogsInDB]; //mete todo en un nuevo array y lo devuelve
             res.status(200);
